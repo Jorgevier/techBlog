@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { where } = require('sequelize/types');
+// const { where } = require('sequelize/types');
 const { Post } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
@@ -7,9 +7,9 @@ router.post('/', withAuth, async (req, res) => {
   const body = req.body;
 
   try {
-    const newPost = await Post.create(req.res)({  // CHECK REQ.res CORRECT!!!
+    const newPost = await Post.create(  // CHECK REQ.res CORRECT!!!
       // TODO: POST BODY SENT IN REQUEST. HINT USING SPREAD
-    where:{...body},
+    {...body, 
       // TODO: SET USERID TO LOGGEDIN USERID
       loginId: req.session.userId,
     })
