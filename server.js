@@ -10,7 +10,7 @@ const helpers = require('./utils/helpers');
 
 // Setup express app
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 const sequelize = require('./config/config');
 // Session store using sequelize to store session data
