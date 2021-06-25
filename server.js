@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Setup routing middleware
 app.use(routes);
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
+app.listen(PORT, () => 
+  console.log(`App listening on port ${PORT}!`));
   sequelize.sync({ force: false }); 
-});
+
