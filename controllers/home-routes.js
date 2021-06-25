@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll({
       include: [User],
     });
-
+    id:req.session.userId
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('all-posts', { posts });
@@ -20,8 +20,9 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id)( 
-    {include: [User]
+    {include: [User],
         });
+        id:req.session.postData
       // TODO: YOUR CODE HERE
     
 
@@ -40,7 +41,7 @@ router.get('/post/:id', async (req, res) => {
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
-    return;
+    return ;
   }
 
   res.render('login');

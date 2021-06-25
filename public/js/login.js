@@ -15,7 +15,7 @@ console.log(usernameEl.value, passwordEl.value)
 
   if (response.ok) {
     console.log("successful login")
-  //  document.location.replace('/dashboard');
+    document.location.replace('/dashboard');
   } else {
     alert('Failed to login');
   }
